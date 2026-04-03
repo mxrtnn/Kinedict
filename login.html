@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | KINEDICT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        kineDark: '#166534', 
+                        kineLime: '#a3e635', 
+                        kineBg: '#f0fdf4',   
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body class="bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 flex flex-col min-h-screen">
+
+    <nav class="bg-white dark:bg-slate-900 shadow-sm sticky top-0 z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 transition-colors duration-300">
+                    <i class="fa-solid fa-person-running text-2xl text-blue-900 dark:text-kineLime transition-colors duration-300"></i>
+                </div>
+                <span class="text-2xl font-bold text-kineDark dark:text-kineLime tracking-tight transition-colors">KINEDICT</span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="index.html" class="hover:text-kineDark dark:hover:text-kineLime transition" data-i18n="nav_home">Inicio</a>
+                <a href="#" class="hover:text-kineDark dark:hover:text-kineLime transition" data-i18n="nav_about">Nosotros</a>
+                <a href="#" class="hover:text-kineDark dark:hover:text-kineLime transition group">
+                    <span data-i18n="nav_services">Servicios</span> <i class="fa-solid fa-chevron-down text-xs ml-1 group-hover:rotate-180 transition-transform"></i>
+                </a>
+                <a href="#" class="hover:text-kineDark dark:hover:text-kineLime transition" data-i18n="nav_contact">Contacto</a>
+            </div>
+
+            <div class="flex items-center gap-5">
+                <button id="lang-toggle" class="text-slate-600 dark:text-slate-300 hover:text-kineDark dark:hover:text-kineLime transition flex items-center gap-1" aria-label="Cambiar Idioma">
+                    <i class="fa-solid fa-globe text-lg"></i>
+                    <span id="lang-text" class="text-xs font-bold uppercase">ES</span>
+                </button>
+                <button id="theme-toggle" class="text-slate-600 dark:text-slate-300 hover:text-kineDark dark:hover:text-kineLime transition text-lg" aria-label="Cambiar Tema">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow relative flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1511497584788-876760111969?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+        
+        <div class="absolute inset-0 bg-kineDark/50 mix-blend-multiply"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-kineDark/20 to-slate-900/90"></div>
+
+        <div class="relative z-10 w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] text-white">
+            
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-extrabold tracking-tight mb-2">Bienvenido de vuelta</h1>
+                <p class="text-white/70 text-sm">Ingresa tus credenciales para continuar</p>
+            </div>
+
+            <form class="space-y-6">
+                <div class="relative">
+                    <i class="fa-regular fa-envelope absolute left-0 top-3 text-white/60"></i>
+                    <input type="email" placeholder="Correo Electrónico" class="w-full bg-transparent border-0 border-b border-white/30 text-white placeholder-white/60 pl-8 pr-4 py-2 focus:ring-0 focus:border-kineLime focus:outline-none transition-colors" required>
+                </div>
+
+                <div class="relative">
+                    <i class="fa-solid fa-lock absolute left-0 top-3 text-white/60"></i>
+                    <input type="password" placeholder="Contraseña" class="w-full bg-transparent border-0 border-b border-white/30 text-white placeholder-white/60 pl-8 pr-4 py-2 focus:ring-0 focus:border-kineLime focus:outline-none transition-colors" required>
+                </div>
+
+                <div class="flex items-center justify-between text-sm text-white/80">
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-white transition">
+                        <input type="checkbox" class="rounded border-white/30 bg-white/10 text-kineLime focus:ring-kineLime focus:ring-offset-0">
+                        Recordarme
+                    </label>
+                    <a href="#" class="hover:text-kineLime transition">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="w-full bg-kineLime hover:bg-[#8ece28] text-slate-900 font-bold py-3 rounded-full shadow-lg transition-all transform hover:-translate-y-0.5 mt-4">
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <div class="mt-8 mb-6 flex items-center justify-center space-x-4 text-sm text-white/60">
+                <span class="h-px w-full bg-white/20"></span>
+                <span class="whitespace-nowrap">O continúa con</span>
+                <span class="h-px w-full bg-white/20"></span>
+            </div>
+
+            <div class="flex gap-4 justify-center mb-8">
+                <button class="w-12 h-12 rounded-full border border-white/30 bg-white/5 hover:bg-white/20 flex items-center justify-center transition-colors">
+                    <i class="fa-brands fa-google text-lg"></i>
+                </button>
+                <button class="w-12 h-12 rounded-full border border-white/30 bg-white/5 hover:bg-white/20 flex items-center justify-center transition-colors">
+                    <i class="fa-brands fa-apple text-xl"></i>
+                </button>
+                <button class="w-12 h-12 rounded-full border border-white/30 bg-white/5 hover:bg-white/20 flex items-center justify-center transition-colors">
+                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                </button>
+            </div>
+
+            <p class="text-center text-sm text-white/70">
+                ¿No tienes una cuenta? 
+                <a href="registro.html" class="text-kineLime hover:underline font-semibold ml-1">Regístrate aquí</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
