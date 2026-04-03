@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINEDICT | Predicción de Riesgo de Lesiones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kineDark: '#166534', // Verde oscuro del logo
+                        kineLime: '#a3e635', // Verde lima brillante del logo
+                        kineBg: '#f0fdf4',   // Fondo verde muy clarito
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-kine {
+            background: linear-gradient(135deg, #166534 0%, #a3e635 100%);
+        }
+    </style>
+</head>
+<body class="bg-kineBg text-slate-800 font-sans">
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 gradient-kine rounded-full flex items-center justify-center text-white font-bold text-xl">K</div>
+                <span class="text-2xl font-bold text-kineDark">KINEDICT</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+                <a href="#" class="text-kineDark font-semibold">Inicio</a>
+                <a href="#" class="hover:text-kineDark transition">Nosotros</a>
+                <a href="#" class="hover:text-kineDark transition">Servicios <i class="fa-solid fa-chevron-down text-xs"></i></a>
+                <a href="#" class="hover:text-kineDark transition">Blog</a>
+                <a href="#" class="hover:text-kineDark transition">Contacto</a>
+            </div>
+            <a href="#test" class="gradient-kine text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition">
+                Realizar Predicción
+            </a>
+        </div>
+    </nav>
+
+    <header class="bg-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-kineLime font-semibold tracking-wider text-sm">PREVENCIÓN INTELIGENTE</span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-kineDark mt-3 mb-6 leading-tight">
+                    Predicción de Riesgo de Lesiones para tus Atletas
+                </h1>
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+                    Utilizamos modelos avanzados de análisis de datos biométricos y de estilo de vida para ayudar a kinesiologos y entrenadores a anticipar y prevenir lesiones antes de que ocurran.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#test" class="gradient-kine text-white px-8 py-3.5 rounded-full text-base font-bold text-center shadow-lg hover:opacity-90 transition">
+                        Predecir Riesgo Ahora
+                    </a>
+                    <a href="#" class="bg-slate-100 text-slate-800 px-8 py-3.5 rounded-full text-base font-semibold text-center hover:bg-slate-200 transition">
+                        Contactar Especialista
+                    </a>
+                </div>
+            </div>
+            <div class="bg-slate-100 rounded-3xl h-96 flex items-center justify-center border-4 border-dashed border-slate-200">
+                <span class="text-slate-400">[Imagen de Profesionales de Salud/Deporte]</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 md:py-28 bg-kineBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-kineLime font-semibold text-sm">ÁREAS DE SERVICIO</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-kineDark mt-2">Nuestras Soluciones Analíticas</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 gradient-kine rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                        <i class="fa-solid fa-person-running"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-kineDark mb-4">Análisis Biométrico</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Evaluamos edad, peso, altura y composición corporal para establecer una línea base de riesgo.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 gradient-kine rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-kineDark mb-4">Estilo de Vida y Hábitos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Analizamos consumo de alcohol, tabaco y calidad de sueño como factores críticos de recuperación.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-16 h-16 gradient-kine rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-kineDark mb-4">Carga de Entrenamiento</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Integramos historial de lesiones y volumen de ejercicio para predicciones a largo plazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
