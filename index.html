@@ -4,105 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KINEDICT | Predicción de Riesgo de Lesiones</title>
-    <link rel="stylesheet" href="static/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        kineDark: '#166534', // Verde oscuro del logo
-                        kineLime: '#a3e635', // Verde lima brillante del logo
-                        kineBg: '#f0fdf4',   // Fondo verde muy clarito
+                        kineDark: '#166534', 
+                        kineLime: '#a3e635', 
+                        kineBg: '#f0fdf4',   
                     }
                 }
             }
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .gradient-kine {
-            background: linear-gradient(135deg, #166534 0%, #a3e635 100%);
-        }
-    </style>
+    <link rel="stylesheet" href="static/style.css">
 </head>
-<body class="bg-kineBg text-slate-800 font-sans">
+<body class="bg-white text-slate-800 font-sans">
 
     <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 gradient-kine rounded-full flex items-center justify-center text-white font-bold text-xl">K</div>
-                <span class="text-2xl font-bold text-kineDark">KINEDICT</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="assets/icono_kinedict.png" alt="Logo Kinedict" class="w-10 h-10 rounded-full object-cover border-2 border-kineLime">
+                <span class="text-2xl font-bold text-kineDark tracking-tight">KINEDICT</span>
             </div>
-            <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
                 <a href="#" class="text-kineDark font-semibold">Inicio</a>
                 <a href="#" class="hover:text-kineDark transition">Nosotros</a>
-                <a href="#" class="hover:text-kineDark transition">Servicios <i class="fa-solid fa-chevron-down text-xs"></i></a>
+                <a href="#" class="hover:text-kineDark transition">Servicios <i class="fa-solid fa-chevron-down text-xs ml-1"></i></a>
                 <a href="#" class="hover:text-kineDark transition">Blog</a>
                 <a href="#" class="hover:text-kineDark transition">Contacto</a>
             </div>
-            <a href="#test" class="gradient-kine text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition">
-                Realizar Predicción
-            </a>
+            <div class="flex items-center gap-4">
+                <span class="text-sm font-medium text-slate-600 hidden lg:block">Es <i class="fa-solid fa-magnifying-glass ml-2"></i></span>
+                <a href="#test" class="gradient-kine text-white px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg transition">
+                    Iniciar Sesión
+                </a>
+            </div>
         </div>
     </nav>
 
-    <header class="bg-white py-20 md:py-32">
+    <header class="bg-kineBg py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <span class="text-kineLime font-semibold tracking-wider text-sm">PREVENCIÓN INTELIGENTE</span>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-kineDark mt-3 mb-6 leading-tight">
-                    Predicción de Riesgo de Lesiones para tus Atletas
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+                    Platoforma de examen preventivo para deportistas
                 </h1>
                 <p class="text-lg text-slate-600 mb-10 leading-relaxed">
-                    Utilizamos modelos avanzados de análisis de datos biométricos y de estilo de vida para ayudar a kinesiologos y entrenadores a anticipar y prevenir lesiones antes de que ocurran.
+                    Kinedict, ayuda a realizar examenes de predicción de índice lesivo, que busca ayudar a personas que cuentan con distintos estilos de vida.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#test" class="gradient-kine text-white px-8 py-3.5 rounded-full text-base font-bold text-center shadow-lg hover:opacity-90 transition">
-                        Predecir Riesgo Ahora
+                    <a href="#test" class="gradient-kine text-white px-8 py-3 rounded-md text-base font-bold text-center shadow hover:opacity-90 transition">
+                        Pruebalo &rarr;
                     </a>
-                    <a href="#" class="bg-slate-100 text-slate-800 px-8 py-3.5 rounded-full text-base font-semibold text-center hover:bg-slate-200 transition">
-                        Contactar Especialista
+                    <a href="#" class="border-2 border-slate-300 text-slate-700 px-8 py-3 rounded-md text-base font-semibold text-center hover:border-kineDark hover:text-kineDark transition">
+                        Contáctanos
                     </a>
                 </div>
             </div>
-            <div class="bg-slate-100 rounded-3xl h-96 flex items-center justify-center border-4 border-dashed border-slate-200">
-                <span class="text-slate-400">[Imagen de Profesionales de Salud/Deporte]</span>
+            <div class="rounded-lg overflow-hidden shadow-2xl h-[400px]">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profesionales" class="w-full h-full object-cover">
             </div>
         </div>
     </header>
 
-    <section class="py-20 md:py-28 bg-kineBg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-kineLime font-semibold text-sm">ÁREAS DE SERVICIO</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-kineDark mt-2">Nuestras Soluciones Analíticas</h2>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-slate-400 font-semibold text-xs tracking-widest uppercase">Detalles de la plataforma</span>
+            <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-12">¿CÓMO FUNCIONA KINEDICT?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                
+                <div class="bg-white p-10 rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 bg-kineDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-person"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Análisis Biométrico</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Evaluamos edad, peso, altura y composición corporal. Procesamos los datos con algoritmos precisos para predecir desgaste articular.</p>
+                </div>
+                
+                <div class="bg-white p-10 rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 bg-kineDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Estilo de Vida</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Analizamos hábitos como consumo de alcohol y calidad de sueño. Factores vitales que alteran la recuperación de los tejidos musculares.</p>
+                </div>
+                
+                <div class="bg-white p-10 rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 bg-kineDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-dumbbell"></i> </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Historial de Cargas</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Llevamos un registro en la nube de las lesiones pasadas y los tiempos de entrenamiento para emitir alertas de sobreentrenamiento.</p>
+                </div>
+                
+                <div class="bg-white p-10 rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 bg-kineDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Alimentación e Hidratación</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Siendo un aspecto crítico a la hora de entrenar, evaluamos los déficits calóricos y vitamínicos que debilitan tendones y ligamentos.</p>
+                </div>
+
+                <div class="bg-white p-10 rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 bg-kineDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-running"></i> </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Técnica y Biomecánica</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Evaluamos el rango de movimiento y desbalances posturales que generan compensaciones y, eventualmente, lesiones graves.</p>
+                </div>
+
+                <div class="bg-white p-10 rounded-lg shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-slate-100 hover:-translate-y-2 transition duration-300">
+                    <div class="w-16 h-16 bg-kineDark rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-6">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Estrés y Carga Mental</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Consideramos los niveles de estrés laboral y emocional. La fatiga mental reduce la coordinación y aumenta el riesgo de accidentes.</p>
+                </div>
+
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-16 h-16 gradient-kine rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
-                        <i class="fa-solid fa-person-running"></i>
+
+            <a href="#test" class="gradient-kine text-white px-8 py-3 rounded-md text-sm font-bold shadow hover:shadow-lg transition inline-block">
+                Iniciar Evaluación Gratuita &rarr;
+            </a>
+        </div>
+    </section>
+
+    <section class="py-20 bg-kineBg border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-slate-400 font-semibold text-xs tracking-widest uppercase">Algunas Razones</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Por Qué Elegirnos</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10">
+                <div class="flex gap-4">
+                    <span class="text-kineDark font-bold text-xl">01 <span class="text-slate-300 ml-2">—</span></span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2">Algoritmos de Alta Precisión</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Usamos hardware y software de primer nivel para desarrollar las aplicaciones más eficientes para nuestros clientes.</p>
                     </div>
-                    <h3 class="text-xl font-bold text-kineDark mb-4">Análisis Biométrico</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Evaluamos edad, peso, altura y composición corporal para establecer una línea base de riesgo.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-16 h-16 gradient-kine rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
-                        <i class="fa-solid fa-heart-pulse"></i>
+                <div class="flex gap-4">
+                    <span class="text-kineDark font-bold text-xl">02 <span class="text-slate-300 ml-2">—</span></span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2">Soporte Dedicado 24/7</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Puedes confiar en nuestro soporte técnico que resolverá con gusto cualquier problema que tengas con la app.</p>
                     </div>
-                    <h3 class="text-xl font-bold text-kineDark mb-4">Estilo de Vida y Hábitos</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Analizamos consumo de alcohol, tabaco y calidad de sueño como factores críticos de recuperación.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 text-center hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-16 h-16 gradient-kine rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-6">
-                        <i class="fa-solid fa-chart-line"></i>
+                <div class="flex gap-4">
+                    <span class="text-kineDark font-bold text-xl">03 <span class="text-slate-300 ml-2">—</span></span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2">Planes Adaptables</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Si no estás satisfecho con nuestros planes, puedes cancelar en cualquier momento sin compromisos a largo plazo.</p>
                     </div>
-                    <h3 class="text-xl font-bold text-kineDark mb-4">Carga de Entrenamiento</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Integramos historial de lesiones y volumen de ejercicio para predicciones a largo plazo.</p>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-kineDark font-bold text-xl">04 <span class="text-slate-300 ml-2">—</span></span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2">Metodología Ágil</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Este enfoque de trabajo ayuda a nuestros especialistas a entregar predicciones rápidas y certeras.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-kineDark font-bold text-xl">05 <span class="text-slate-300 ml-2">—</span></span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2">Test Básicos Gratuitos</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">También desarrollamos herramientas gratuitas que pueden ser utilizadas en línea sin realizar ningún pago.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="text-kineDark font-bold text-xl">06 <span class="text-slate-300 ml-2">—</span></span>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-2">Alto Nivel de Usabilidad</h4>
+                        <p class="text-sm text-slate-500 leading-relaxed">Todos nuestros productos tienen una alta usabilidad, permitiendo a los usuarios operar las aplicaciones fácilmente.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-16">
+            
+            <div class="relative w-64 h-64 flex items-center justify-center">
+                <div class="absolute inset-0 border-[20px] border-kineDark rounded-full opacity-90 border-t-transparent transform -rotate-12"></div>
+                <div class="absolute inset-0 border-[20px] border-kineLime rounded-full opacity-80 border-b-transparent border-l-transparent transform rotate-45 scale-105"></div>
+                
+                <div class="text-center z-10 bg-white rounded-full w-40 h-40 flex flex-col items-center justify-center shadow-lg">
+                    <span class="text-5xl font-extrabold text-kineDark leading-none">85%</span>
+                    <p class="font-bold text-slate-800 text-sm mt-1 leading-tight">Prevención<br>de Lesiones</p>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div>
+                    <span class="text-2xl font-extrabold text-kineDark">92%</span>
+                    <p class="font-bold text-slate-800 text-lg">Precisión Científica</p>
+                    <p class="text-sm text-slate-500 mt-1">Basado en más de 5,000 estudios clínicos<br>sobre desgaste muscular.</p>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold text-kineDark">10K+</span>
+                    <p class="font-bold text-slate-800 text-lg">Deportistas Evaluados</p>
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold text-kineDark">160</span>
+                    <p class="font-bold text-slate-800 text-lg">Kinesiólogos Activos</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
     <script src="static/script.js"></script>
 </body>
 </html>
