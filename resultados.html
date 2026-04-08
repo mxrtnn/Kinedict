@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados y Recomendaciones | KINEDICT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { kineDark: '#166534', kineLime: '#a3e635' } } } }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        /* Clases base para la animación de scroll */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white min-h-screen relative overflow-x-hidden">
+    <div class="glass-bg fixed inset-0"></div>
+
+    <nav class="absolute top-0 left-0 w-full z-50 p-4 md:px-8 flex justify-between items-start pointer-events-none">
+        
+        <div class="flex items-center gap-3 mt-2 pointer-events-auto">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-800 border border-white/10 shadow-lg">
+                <i class="fa-solid fa-person-running text-2xl text-kineLime"></i>
+            </div>
+            <span class="text-2xl font-black text-kineLime tracking-tight drop-shadow-md hidden sm:block">KINEDICT</span>
+        </div>
+
+        <div class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 rounded-[2rem] p-2 flex gap-2 shadow-2xl mt-2 relative pointer-events-auto">
+            <a href="index.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-house text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Inicio</span></a>
+            <a href="perfil.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-user text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Perfil</span></a>
+            <a href="evaluacion.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-clipboard-check text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Tests</span></a>
+            
+            <div class="relative flex flex-col items-center justify-center w-16 h-16 cursor-default">
+                <div class="absolute -top-4 w-14 h-14 bg-kineLime rounded-2xl shadow-[0_8px_15px_rgba(163,230,53,0.4)] flex items-center justify-center"><i class="fa-solid fa-clock-rotate-left text-slate-900 text-2xl"></i></div>
+                <span class="absolute bottom-1 text-[10px] uppercase font-bold tracking-wider text-kineLime">Resultados</span>
+            </div>
+
+            <a href="#" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-gear text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Ajustes</span></a>
+        </div>
+
+        <div class="flex gap-4 mt-2 pointer-events-auto">
+            <div class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 p-2 rounded-2xl flex flex-col justify-center items-center gap-2 shadow-2xl">
+                <button id="lang-toggle" class="text-white/50 hover:text-white transition"><i class="fa-solid fa-globe"></i></button>
+                <button id="theme-toggle" class="text-white/50 hover:text-white transition"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+            </div>
+            <div id="auth-container" class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 p-4 py-3 rounded-2xl flex flex-col items-center justify-center shadow-2xl min-w-[140px] min-h-[90px]"></div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 max-w-5xl mx-auto p-6 pt-40 pb-20">
+        
+        <section class="glass-card p-10 text-center mb-16 shadow-[0_10px_40px_rgba(163,230,53,0.15)] scroll-reveal">
+            <h1 class="text-white/60 font-bold tracking-widest uppercase mb-2">Evaluación Finalizada</h1>
+            <h2 class="text-4xl md:text-5xl font-black mb-6">Tu Diagnóstico Actual:</h2>
+            <div class="inline-block bg-white/10 border-2 border-kineLime rounded-2xl px-8 py-4 mb-4">
+                <span class="text-3xl font-extrabold text-kineLime tracking-wider">POCA PROPENSIÓN A LESIÓN</span>
+            </div>
+            <p class="text-white/70 max-w-2xl mx-auto mt-4">
+                De acuerdo con tus resultados en la simetría (Y-Balance), potencia (Hop Test) y patrones de movimiento (FMS), tu cuerpo presenta una excelente adaptación biomecánica. Sin embargo, hay áreas que puedes optimizar. Sigue haciendo scroll.
+            </p>
+            <div class="mt-8 animate-bounce">
+                <i class="fa-solid fa-angles-down text-2xl text-kineLime/50"></i>
+            </div>
+        </section>
+
+        <div class="space-y-12">
+            
+            <div class="glass-card p-8 flex flex-col md:flex-row gap-8 items-center scroll-reveal">
+                <div class="w-20 h-20 flex-shrink-0 bg-blue-900/50 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 text-3xl shadow-[0_0_20px_rgba(59,130,246,0.3)]">
+                    <i class="fa-solid fa-person-walking-arrow-loop-left"></i>
+                </div>
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-2">Entrenamiento Correctivo Funcional (FMS)</h3>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">
+                        Si tu puntuación en pruebas como el *Deep Squat* o el *Inline Lunge* fue menor a 3, los estudios médicos recientes demuestran que integrar **ejercicios correctivos aislados** mejora significativamente la estabilidad de tu core (tronco) y reduce los patrones de compensación articular, previniendo lesiones graves a futuro.
+                    </p>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10859080/" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-kineLime hover:text-white transition-colors bg-kineLime/10 px-4 py-2 rounded-full border border-kineLime/20">
+                        <i class="fa-solid fa-book-medical"></i> Fuente: National Institutes of Health (NIH) - 2024
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col md:flex-row gap-8 items-center scroll-reveal">
+                <div class="w-20 h-20 flex-shrink-0 bg-purple-900/50 border border-purple-500/30 rounded-full flex items-center justify-center text-purple-400 text-3xl shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-2">Simetría Muscular Unilateral</h3>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">
+                        El Y-Balance Test suele revelar pequeñas asimetrías entre tus piernas derecha e izquierda. La literatura médica recomienda incorporar ejercicios unilaterales (como sentadillas búlgaras o pesos muertos a una pierna). Una diferencia mayor a 4cm en alcances suele predecir esguinces de tobillo o rodilla.
+                    </p>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11769697/" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-purple-400 hover:text-white transition-colors bg-purple-500/10 px-4 py-2 rounded-full border border-purple-500/20">
+                        <i class="fa-solid fa-book-medical"></i> Fuente: PMC Sports Medicine Review - Dic. 2024
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col md:flex-row gap-8 items-center scroll-reveal">
+                <div class="w-20 h-20 flex-shrink-0 bg-orange-900/50 border border-orange-500/30 rounded-full flex items-center justify-center text-orange-400 text-3xl shadow-[0_0_20px_rgba(249,115,22,0.3)]">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="flex-grow">
+                    <h3 class="text-2xl font-bold mb-2">La Paradoja del Entrenamiento</h3>
+                    <p class="text-white/70 text-sm leading-relaxed mb-4">
+                        ¿Sientes molestias luego del Hop Test? Contrario a lo que se piensa, descansar totalmente no siempre previene lesiones. Estudios confirman que el **sub-entrenamiento** puede ser tan dañino como el sobreentrenamiento. Mantener una carga de trabajo crónica alta pero estable es la mejor armadura contra roturas de tejidos.
+                    </p>
+                    <a href="https://bjsm.bmj.com/content/50/5/273" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-orange-400 hover:text-white transition-colors bg-orange-500/10 px-4 py-2 rounded-full border border-orange-500/20">
+                        <i class="fa-solid fa-book-medical"></i> Fuente: British Journal of Sports Medicine (BJSM)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 text-center scroll-reveal">
+            <a href="evaluacion.html" class="inline-block bg-white text-slate-900 font-black px-10 py-4 rounded-2xl hover:bg-kineLime transition-colors shadow-lg shadow-kineLime/10">
+                VOLVER A MIS TESTS
+            </a>
+        </div>
+
+    </main>
+    
+    <script src="static/script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100; // Cuántos píxeles antes de aparecer
+
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            // Ejecutamos una vez para cargar los elementos que ya están en pantalla
+            revealOnScroll();
+            // Escuchamos el evento scroll
+            window.addEventListener('scroll', revealOnScroll);
+        });
+    </script>
+</body>
+</html>

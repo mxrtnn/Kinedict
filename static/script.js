@@ -209,3 +209,27 @@ function logout() {
     localStorage.removeItem("kinedict_user");
     window.location.reload(); // Recarga la página actual
 }
+
+// ----------------------------------------------------
+    // LÓGICA DEL BOTÓN: FINALIZAR Y EVALUAR (evaluacion.html)
+    // ----------------------------------------------------
+    const btnEvaluar = document.getElementById('btn-evaluar');
+    if (btnEvaluar) {
+        btnEvaluar.addEventListener('click', () => {
+            const texto = document.getElementById('btn-texto');
+            const spinner = document.getElementById('btn-spinner');
+
+            // 1. Desactivar interacciones y cambiar estilo visual a "cargando"
+            btnEvaluar.classList.remove('hover:scale-[1.01]');
+            btnEvaluar.classList.add('bg-[#8ece28]', 'scale-95', 'opacity-90', 'cursor-not-allowed', 'pointer-events-none');
+            
+            // 2. Cambiar texto y mostrar spinner
+            texto.textContent = 'PROCESANDO DATOS BIOMECÁNICOS...';
+            spinner.classList.remove('hidden');
+
+            // 3. Esperar 2 segundos simulando cálculos y redirigir
+            setTimeout(() => {
+                window.location.href = 'resultados.html';
+            }, 2000);
+        });
+    }
