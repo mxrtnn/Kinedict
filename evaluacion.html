@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Evaluación | KINEDICT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { kineDark: '#166534', kineLime: '#a3e635' } } } }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body class="bg-slate-900 text-white min-h-screen relative">
+    <div class="glass-bg fixed inset-0"></div>
+
+    <nav class="absolute top-0 left-0 w-full z-50 p-4 md:px-8 flex justify-between items-start pointer-events-none">
+        
+        <div class="flex items-center gap-3 mt-2 pointer-events-auto">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-800 border border-white/10 shadow-lg">
+                <i class="fa-solid fa-person-running text-2xl text-kineLime"></i>
+            </div>
+            <span class="text-2xl font-black text-kineLime tracking-tight drop-shadow-md hidden sm:block">KINEDICT</span>
+        </div>
+
+        <div class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 rounded-[2rem] p-2 flex gap-2 shadow-2xl mt-2 relative pointer-events-auto">
+            <a href="index.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-house text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Inicio</span></a>
+            <a href="perfil.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-user text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Perfil</span></a>
+            
+            <div class="relative flex flex-col items-center justify-center w-16 h-16 cursor-default">
+                <div class="absolute -top-4 w-14 h-14 bg-kineLime rounded-2xl shadow-[0_8px_15px_rgba(163,230,53,0.4)] flex items-center justify-center"><i class="fa-solid fa-clipboard-check text-slate-900 text-2xl"></i></div>
+                <span class="absolute bottom-1 text-[10px] uppercase font-bold tracking-wider text-kineLime">Tests</span>
+            </div>
+
+            <a href="#" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-clock-rotate-left text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Historial</span></a>
+            <a href="#" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-gear text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Ajustes</span></a>
+        </div>
+
+        <div class="flex gap-4 mt-2 pointer-events-auto">
+            <div class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 p-2 rounded-2xl flex flex-col justify-center items-center gap-2 shadow-2xl">
+                <button id="lang-toggle" class="text-white/50 hover:text-white transition"><i class="fa-solid fa-globe"></i></button>
+                <button id="theme-toggle" class="text-white/50 hover:text-white transition"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+            </div>
+            <div id="auth-container" class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 p-4 py-3 rounded-2xl flex flex-col items-center justify-center shadow-2xl min-w-[140px] min-h-[90px]"></div>
+        </div>
+    </nav>
+    <main class="relative z-10 max-w-4xl mx-auto p-6 pt-40 pb-12">
+        <form class="space-y-8">
+            <h1 class="text-4xl font-black text-center mb-12">Batería de Tests de Prevención</h1>
+
+            <section class="glass-card p-8">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-kineLime">Y-Balance Test</h2>
+                    <p class="text-white/60 text-sm italic">Prueba para identificar la simetría funcional en tres direcciones. [cite: 6]</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="font-bold border-b border-white/10 pb-2">Pierna Derecha (CM) [cite: 6]</h3>
+                        <input type="number" name="y_der_ant" placeholder="Anterior" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="y_der_pm" placeholder="Posteromedial" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="y_der_pl" placeholder="Posterolateral" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bold border-b border-white/10 pb-2">Pierna Izquierda (CM) [cite: 6]</h3>
+                        <input type="number" name="y_izq_ant" placeholder="Anterior" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="y_izq_pm" placeholder="Posteromedial" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="y_izq_pl" placeholder="Posterolateral" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card p-8">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-kineLime">Hop Test</h2>
+                    <p class="text-white/60 text-sm italic">Evaluación de fuerza, estabilidad y potencia del tren inferior. [cite: 7]</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="grid grid-cols-3 gap-4 font-bold text-xs uppercase text-white/40 px-4">
+                        <span>Prueba</span><span>P. Derecha (CM) [cite: 7]</span><span>P. Izquierda (CM) [cite: 7]</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="text-sm font-semibold">Single Hop [cite: 7]</span>
+                        <input type="number" name="hop_s_der" placeholder="CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="hop_s_izq" placeholder="CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="text-sm font-semibold">Triple Hop [cite: 7]</span>
+                        <input type="number" name="hop_t_der" placeholder="CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="hop_t_izq" placeholder="CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="text-sm font-semibold">Cross Over Hop [cite: 7]</span>
+                        <input type="number" name="hop_co_der" placeholder="CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="hop_co_izq" placeholder="CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 items-center">
+                        <span class="text-sm font-semibold">Time Hop [cite: 7]</span>
+                        <input type="number" name="hop_time_der" placeholder="Seg/CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                        <input type="number" name="hop_time_izq" placeholder="Seg/CM" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all">
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card p-8">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-kineLime">FMS (Functional Movement Screen)</h2>
+                    <p class="text-white/60 text-sm italic">Evaluación de patrones de movimiento básicos. [cite: 8] Puntaje del 0 al 3 (0 = Peor / 3 = Perfecto). [cite: 8]</p>
+                </div>
+                <div class="space-y-6">
+                    
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">1. Deep Squat [cite: 8]</label>
+                            <select name="fms_squat" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_squat_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">2. Hurdle Step [cite: 8]</label>
+                            <select name="fms_hurdle" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_hurdle_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">3. Inline Lunge [cite: 8]</label>
+                            <select name="fms_lunge" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_lunge_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">4. Shoulder Mobility [cite: 8]</label>
+                            <select name="fms_shoulder" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_shoulder_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">5. Active Straight Leg Raise [cite: 8]</label>
+                            <select name="fms_leg_raise" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_leg_raise_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">6. Trunk Stability Push-up [cite: 8]</label>
+                            <select name="fms_pushup" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_pushup_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <div class="flex-grow">
+                            <label class="block text-sm font-bold mb-2">7. Rotary Stability [cite: 8]</label>
+                            <select name="fms_rotary" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all appearance-none cursor-pointer">
+                                <option value="" disabled selected>Seleccionar puntuación...</option>
+                                <option value="0">0 - Dolor durante el movimiento</option>
+                                <option value="1">1 - Incapaz de realizar el patrón</option>
+                                <option value="2">2 - Realiza con compensación</option>
+                                <option value="3">3 - Realiza el patrón a la perfección</option>
+                            </select>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <label class="block text-sm font-bold mb-2">Observaciones [cite: 8]</label>
+                            <textarea name="fms_rotary_obs" class="w-full bg-blue-950 text-white placeholder-white/40 border border-white/20 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-kineLime transition-all h-12" placeholder="Anotar correcciones..."></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="glass-card p-8 border-dashed border-kineLime/30 bg-transparent">
+                <h2 class="text-2xl font-bold text-white/40">SMAS Test</h2>
+                <p class="text-white/30 text-xs mt-2 italic">Prueba para evaluar al sujeto en diferentes fases de la carrera/sprint. (Próximamente - Pendiente de parámetros finales). [cite: 9]</p>
+            </section>
+
+            <button type="button" class="w-full bg-kineLime text-slate-900 font-black py-5 rounded-2xl text-xl hover:scale-[1.01] transition-transform shadow-lg shadow-kineLime/20">
+                FINALIZAR Y EVALUAR
+            </button>
+        </form>
+    </main>
+    
+    <script src="static/script.js"></script>
+</body>
+</html>

@@ -134,3 +134,78 @@ if (langToggleBtn) {
         updateLanguage(currentLang);
     });
 }
+
+function logout() {
+    localStorage.removeItem('kinedict_auth');
+    window.location.href = '/';
+}
+
+// Animaciones de entrada para formularios
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.glass-card');
+    sections.forEach((s, index) => {
+        s.style.opacity = '0';
+        s.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            s.style.transition = 'all 0.6s ease-out';
+            s.style.opacity = '1';
+            s.style.transform = 'translateY(0)';
+        }, index * 150);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. DINÁMICA DEL NAVBAR (Auth)
+    const authContainer = document.getElementById("auth-container");
+    if (authContainer) {
+        const isLoggedIn = localStorage.getItem("kinedict_auth") === "true";
+        const userName = localStorage.getItem("kinedict_user") || "Eduardo Larrain";
+        
+        if (isLoggedIn) {
+            // Usuario Logeado
+            authContainer.innerHTML = `
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=100" alt="Avatar" class="w-12 h-12 rounded-full border-2 border-kineLime object-cover mb-2 shadow-md">
+                <span class="text-sm font-bold text-white whitespace-nowrap">${userName}</span>
+                <button onclick="logout()" class="text-[10px] font-bold text-kineLime hover:text-white hover:underline transition-colors mt-1 uppercase tracking-wider cursor-pointer">Cerrar Sesion</button>
+            `;
+        } else {
+            // Usuario No Logeado
+            authContainer.innerHTML = `
+                <i class="fa-regular fa-circle-user text-3xl text-white/50 mb-2"></i>
+                <a href="login.html" class="text-sm font-bold text-kineLime hover:text-white transition-colors uppercase tracking-wider text-center">INICIA SESIÓN<br><span class="text-[10px] text-white/50 font-normal">o Identifícate</span></a>
+            `;
+        }
+    }
+
+    // 2. LÓGICA DE LOGIN / REGISTRO CON SPINNER
+    const authForm = document.getElementById("auth-form");
+    if (authForm) {
+        authForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            // Si es el registro, toma el nombre. Si es login, usa uno por defecto.
+            const nameInput = authForm.querySelector('input[placeholder="Nombre Completo"]');
+            const userName = nameInput ? nameInput.value : "Eduardo Larrain";
+
+            // Mostrar el spinner de carga
+            const spinner = document.getElementById("loading-spinner");
+            if (spinner) spinner.classList.remove("hidden");
+
+            // Esperar 3.5 segundos, guardar datos y redirigir
+            setTimeout(() => {
+                localStorage.setItem("kinedict_auth", "true");
+                localStorage.setItem("kinedict_user", userName);
+                window.location.href = "index.html";
+            }, 3500);
+        });
+    }
+
+    // (Si tienes código de modo oscuro o traductor en tu script, déjalo aquí abajo)
+});
+
+// Función global para cerrar sesión
+function logout() {
+    localStorage.removeItem("kinedict_auth");
+    localStorage.removeItem("kinedict_user");
+    window.location.reload(); // Recarga la página actual
+}
