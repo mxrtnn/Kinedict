@@ -45,23 +45,49 @@
 
     <header class="bg-kineBg dark:bg-slate-800 pt-40 pb-20 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            
             <div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
-                    Plataforma de examenes para prevenir lesiones
+                    Plataforma de examen preventivo para deportistas
                 </h1>
                 <p class="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
-                    Kinedict ayuda a realizar exámenes de prevencion de lesiones para distintos estilos de vida.
+                    Kinedict ayuda a realizar exámenes de predicción de índice lesivo para distintos estilos de vida.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="evaluacion.html" class="gradient-kine text-white px-8 py-3 rounded-md text-base font-bold text-center shadow hover:opacity-90 transition">
+                    <a href="evaluacion.html" class="bg-kineLime text-slate-900 px-8 py-3 rounded-md text-base font-bold text-center shadow hover:opacity-90 transition">
                         Pruébalo &rarr;
                     </a>
                 </div>
             </div>
-            <div class="rounded-lg overflow-hidden shadow-2xl h-[400px]">
-                <img src="/assets/lesion2.jpeg" alt="Profesionales" class="w-full h-full object-cover">
+
+            <div class="relative w-full flex justify-center items-center h-[450px]">
+                
+                <div class="absolute w-[350px] md:w-[400px] h-[350px] md:h-[400px] border border-dashed border-kineLime/30 rounded-full orbit-container flex items-center justify-center z-0">
+                    
+                    <div class="absolute -top-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
+                        <i class="fa-solid fa-weight-hanging"></i>
+                    </div>
+                    
+                    <div class="absolute -left-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    
+                    <div class="absolute -right-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+
+                </div>
+
+                <div class="relative z-10 rounded-full overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)] w-64 h-64 md:w-72 md:h-72 border-4 border-slate-800">
+                    <img src="/assets/lesion3.jpg" alt="Evaluación Kinedict" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                </div>
+                
             </div>
-        </div>
+            </div>
     </header>
 
     <script src="static/script.js"></script>
