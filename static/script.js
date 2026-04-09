@@ -233,3 +233,114 @@ function logout() {
             }, 2000);
         });
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. MODO OSCURO / CLARO GLOBAL
+    // ==========================================
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlElement = document.documentElement;
+
+    // Leer la preferencia guardada (Por defecto oscuro si no hay nada)
+    const currentTheme = localStorage.getItem('kinedict_theme') || 'dark';
+
+    // Aplicar el tema al cargar cualquier página
+    if (currentTheme === 'dark') {
+        htmlElement.classList.add('dark');
+        if(themeIcon) {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+    } else {
+        htmlElement.classList.remove('dark');
+        if(themeIcon) {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
+
+    // Funcionalidad del botón de alternar tema
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            let themeToSave = 'light';
+            
+            if (htmlElement.classList.contains('dark')) {
+                themeToSave = 'dark';
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            // Guardar en la memoria del navegador
+            localStorage.setItem('kinedict_theme', themeToSave);
+        });
+    }
+
+    // ==========================================
+    // 2. SISTEMA DE TRADUCCIÓN GLOBAL BÁSICO
+    // ==========================================
+    const langToggle = document.getElementById('lang-toggle');
+    
+    // Diccionario de traducciones (Agrega aquí los textos de toda la web)
+    const translations = {
+        es: {
+            nav_home: "Inicio",
+            nav_profile: "Perfil",
+            nav_tests: "Tests",
+            nav_history: "Historial",
+            nav_info: "Info",
+            hero_title: "Plataforma de examen preventivo para deportistas",
+            hero_desc: "Kinedict ayuda a realizar exámenes de predicción de índice lesivo para distintos estilos de vida.",
+            hero_btn: "Pruébalo →"
+        },
+        en: {
+            nav_home: "Home",
+            nav_profile: "Profile",
+            nav_tests: "Exams",
+            nav_history: "History",
+            nav_info: "Info",
+            hero_title: "Preventive screening platform for athletes",
+            hero_desc: "Kinedict helps perform injury index prediction exams for different lifestyles.",
+            hero_btn: "Try it out →"
+        }
+    };
+
+    // Leer el idioma guardado
+    let currentLang = localStorage.getItem('kinedict_lang') || 'es';
+
+    // Función para aplicar los textos según el idioma
+    const applyLanguage = (lang) => {
+        // Busca todos los elementos HTML que tengan el atributo data-i18n
+        const elementsToTranslate = document.querySelectorAll('[data-i18n]');
+        
+        elementsToTranslate.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                // Si es un input o textarea cambia el placeholder, sino el texto interno
+                if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translations[lang][key];
+                } else {
+                    el.textContent = translations[lang][key];
+                }
+            }
+        });
+    };
+
+    // Aplicar el idioma al cargar la página
+    applyLanguage(currentLang);
+
+    // Funcionalidad del botón de alternar idioma
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'es' ? 'en' : 'es'; // Alterna entre es/en
+            localStorage.setItem('kinedict_lang', currentLang); // Guarda la selección
+            applyLanguage(currentLang); // Aplica los cambios visualmente
+        });
+    }
+
+});

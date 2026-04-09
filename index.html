@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <title>Inicio | KINEDICT</title>
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="static/style.css">
 </head>
-<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 relative">
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300 relative overflow-x-hidden">
 
     <nav class="absolute top-0 left-0 w-full z-50 p-4 md:px-8 flex justify-between items-start pointer-events-none">
         <div class="flex items-center gap-3 mt-2 pointer-events-auto">
@@ -25,21 +25,21 @@
                 <div class="absolute -top-4 w-14 h-14 bg-kineLime rounded-2xl shadow-[0_8px_15px_rgba(163,230,53,0.4)] flex items-center justify-center">
                     <i class="fa-solid fa-house text-slate-900 text-2xl"></i>
                 </div>
-                <span class="absolute bottom-1 text-[10px] uppercase font-bold tracking-wider text-kineLime">Inicio</span>
+                <span class="absolute bottom-1 text-[10px] uppercase font-bold tracking-wider text-kineLime" data-i18n="nav_home">Inicio</span>
             </div>
             
-            <a href="perfil.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-user text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Perfil</span></a>
-            <a href="evaluacion.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-clipboard-check text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Tests</span></a>
-            <a href="#" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-clock-rotate-left text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Historial</span></a>
-            <a href="#" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-gear text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider">Ajustes</span></a>
+            <a href="perfil.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-user text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider" data-i18n="nav_profile">Perfil</span></a>
+            <a href="evaluacion.html" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-clipboard-check text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider" data-i18n="nav_tests">Tests</span></a>
+            <a href="#" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-clock-rotate-left text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider" data-i18n="nav_history">Historial</span></a>
+            
+            <a href="#info-section" class="flex flex-col items-center justify-center w-16 h-16 text-white/50 hover:text-white transition-colors"><i class="fa-solid fa-circle-info text-xl mb-1"></i><span class="text-[10px] uppercase font-bold tracking-wider" data-i18n="nav_info">Info</span></a>
         </div>
 
         <div class="flex gap-4 mt-2 pointer-events-auto">
             <div class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 p-2 rounded-2xl flex flex-col justify-center items-center gap-2 shadow-2xl">
                 <button id="lang-toggle" class="text-white/50 hover:text-white transition"><i class="fa-solid fa-globe"></i></button>
-                <button id="theme-toggle" class="text-white/50 hover:text-white transition"><i id="theme-icon" class="fa-solid fa-moon"></i></button>
+                <button id="theme-toggle" class="text-white/50 hover:text-white transition"><i id="theme-icon" class="fa-solid fa-sun"></i></button>
             </div>
-            <div id="auth-container" class="bg-[#1e2329]/95 backdrop-blur-md border border-white/5 p-4 py-3 rounded-2xl flex flex-col items-center justify-center shadow-2xl min-w-[140px] min-h-[90px]"></div>
         </div>
     </nav>
 
@@ -47,48 +47,121 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             
             <div>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight" data-i18n="hero_title">
                     Plataforma de examen preventivo para deportistas
                 </h1>
-                <p class="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
+                <p class="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed" data-i18n="hero_desc">
                     Kinedict ayuda a realizar exámenes de predicción de índice lesivo para distintos estilos de vida.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="evaluacion.html" class="bg-kineLime text-slate-900 px-8 py-3 rounded-md text-base font-bold text-center shadow hover:opacity-90 transition">
+                    <a href="evaluacion.html" class="bg-kineLime text-slate-900 px-8 py-3 rounded-md text-base font-bold text-center shadow hover:opacity-90 transition" data-i18n="hero_btn">
                         Pruébalo &rarr;
                     </a>
                 </div>
             </div>
 
             <div class="relative w-full flex justify-center items-center h-[450px]">
-                
                 <div class="absolute w-[350px] md:w-[400px] h-[350px] md:h-[400px] border border-dashed border-kineLime/30 rounded-full orbit-container flex items-center justify-center z-0">
-                    
-                    <div class="absolute -top-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
-                        <i class="fa-solid fa-dumbbell"></i>
-                    </div>
-                    
-                    <div class="absolute -bottom-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
-                        <i class="fa-solid fa-weight-hanging"></i>
-                    </div>
-                    
-                    <div class="absolute -left-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                    </div>
-                    
-                    <div class="absolute -right-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl">
-                        <i class="fa-solid fa-stopwatch"></i>
-                    </div>
-
+                    <div class="absolute -top-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl"><i class="fa-solid fa-dumbbell"></i></div>
+                    <div class="absolute -bottom-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl"><i class="fa-solid fa-weight-hanging"></i></div>
+                    <div class="absolute -left-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <div class="absolute -right-6 orbit-icon bg-slate-800 border border-kineLime text-kineLime w-14 h-14 flex items-center justify-center rounded-full shadow-[0_0_15px_rgba(163,230,53,0.4)] text-xl"><i class="fa-solid fa-stopwatch"></i></div>
                 </div>
-
                 <div class="relative z-10 rounded-full overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)] w-64 h-64 md:w-72 md:h-72 border-4 border-slate-800">
                     <img src="/assets/lesion3.jpg" alt="Evaluación Kinedict" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
                 </div>
-                
             </div>
-            </div>
+        </div>
     </header>
+
+    <section id="info-section" class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+            
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-kineLime font-black tracking-widest uppercase text-sm mb-3">La Ciencia del Movimiento</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-6">¿Qué es Kinedict?</h3>
+                <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                    Kinedict es una herramienta clínica y deportiva diseñada para predecir y prevenir lesiones. Utilizando algoritmos basados en los últimos papers de la British Journal of Sports Medicine, analiza datos biomecánicos para entregarte un diagnóstico de tu estado físico.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-100 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-200 dark:border-white/5 hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fa-solid fa-scale-balanced text-4xl text-kineLime mb-4"></i>
+                    <h4 class="text-xl font-bold dark:text-white mb-2">Y-Balance Test</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Identifica la asimetría funcional y el control postural dinámico evaluando tu alcance en tres direcciones críticas.</p>
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-200 dark:border-white/5 hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fa-solid fa-person-arrow-up-from-line text-4xl text-kineLime mb-4"></i>
+                    <h4 class="text-xl font-bold dark:text-white mb-2">Hop Test</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Batería de saltos unipodales para evaluar la fuerza, estabilidad y potencia reactiva del tren inferior tras un impacto.</p>
+                </div>
+                <div class="bg-slate-100 dark:bg-slate-800/50 p-8 rounded-3xl border border-slate-200 dark:border-white/5 hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fa-solid fa-child-reaching text-4xl text-kineLime mb-4"></i>
+                    <h4 class="text-xl font-bold dark:text-white mb-2">FMS Screen</h4>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">Evaluación de 7 patrones de movimiento fundamentales para detectar compensaciones motoras y dolor articular.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 rounded-[3rem] p-8 md:p-12 border border-white/10 shadow-2xl overflow-hidden relative">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-kineLime/10 rounded-full blur-3xl"></div>
+                <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-3xl font-extrabold text-white mb-4">Resultados Claros y Gráficos</h3>
+                        <p class="text-white/60 mb-8">Kinedict procesa tus datos y genera un dashboard interactivo al instante. Entiende tu propensión a lesiones y recibe recomendaciones precisas.</p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-white/50 mb-1"><span>Simetría P. Derecha</span><span>92%</span></div>
+                                <div class="w-full bg-white/10 rounded-full h-2"><div class="bg-kineLime h-2 rounded-full w-[92%]"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold text-white/50 mb-1"><span>Estabilidad Core (FMS)</span><span>75%</span></div>
+                                <div class="w-full bg-white/10 rounded-full h-2"><div class="bg-yellow-400 h-2 rounded-full w-[75%]"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 flex justify-center">
+                        <div class="w-48 h-48 rounded-full border-8 border-slate-800 flex flex-col items-center justify-center relative shadow-[0_0_30px_rgba(163,230,53,0.2)]">
+                            <svg class="absolute inset-0 w-full h-full transform -rotate-90">
+                                <circle cx="88" cy="88" r="80" stroke="#1e293b" stroke-width="12" fill="none" class="translate-x-2 translate-y-2"></circle>
+                                <circle cx="88" cy="88" r="80" stroke="#a3e635" stroke-width="12" fill="none" stroke-dasharray="502" stroke-dashoffset="100" class="translate-x-2 translate-y-2"></circle>
+                            </svg>
+                            <span class="text-4xl font-black text-white z-10">80%</span>
+                            <span class="text-[10px] uppercase font-bold text-kineLime z-10 tracking-widest mt-1">Óptimo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#0f141a] pt-16 pb-8 border-t border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center gap-2 bg-slate-800/50 border border-white/10 px-4 py-2 rounded-full mb-6">
+                <i class="fa-solid fa-code text-kineLime"></i>
+                <span class="text-white text-sm font-semibold tracking-wide">Desarrollado por Eduardo Larraín</span>
+            </div>
+            
+            <h2 class="text-2xl font-black text-white/90 tracking-tight">Martín Jara</h2>
+            <p class="text-kineLime text-xs font-bold uppercase tracking-widest mt-1 mb-8">Diseñador Web & UI/UX • 2026</p>
+
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white/60 hover:text-white hover:bg-kineLime hover:shadow-[0_0_15px_rgba(163,230,53,0.5)] transition-all duration-300">
+                    <i class="fa-brands fa-github text-xl"></i>
+                </a>
+                <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-white/60 hover:text-white hover:bg-[#0077b5] hover:shadow-[0_0_15px_rgba(0,119,181,0.5)] transition-all duration-300">
+                    <i class="fa-brands fa-linkedin-in text-xl"></i>
+                </a>
+            </div>
+
+            <div class="border-t border-white/5 pt-8">
+                <p class="text-white/30 text-xs">© 2026 Kinedict. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="static/script.js"></script>
 </body>
