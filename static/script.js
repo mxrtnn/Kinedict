@@ -235,7 +235,7 @@ function logout() {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-    
+
     // ==========================================
     // 1. MODO OSCURO / CLARO GLOBAL
     // ==========================================
@@ -243,22 +243,33 @@ function logout() {
     const themeIcon = document.getElementById('theme-icon');
     const htmlElement = document.documentElement;
 
-    // Leer la preferencia guardada (Por defecto oscuro si no hay nada)
     const currentTheme = localStorage.getItem('kinedict_theme') || 'dark';
 
-    // Aplicar el tema al cargar cualquier página
+    // Aplicar al inicio
     if (currentTheme === 'dark') {
         htmlElement.classList.add('dark');
-        if(themeIcon) {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
+        if(themeIcon) { themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun'); }
     } else {
         htmlElement.classList.remove('dark');
-        if(themeIcon) {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
+        if(themeIcon) { themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon'); }
+    }
+
+    // Funcionalidad del click (Solo si el botón existe en la página actual)
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            const isDark = htmlElement.classList.contains('dark');
+            const themeToSave = isDark ? 'dark' : 'light';
+            
+            if (themeIcon) {
+                if (isDark) {
+                    themeIcon.classList.remove('fa-moon'); themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun'); themeIcon.classList.add('fa-moon');
+                }
+            }
+            localStorage.setItem('kinedict_theme', themeToSave);
+        });
     }
 
     // Funcionalidad del botón de alternar tema
@@ -296,7 +307,18 @@ function logout() {
             nav_info: "Info",
             hero_title: "Plataforma de examen preventivo para deportistas",
             hero_desc: "Kinedict ayuda a realizar exámenes de predicción de índice lesivo para distintos estilos de vida.",
-            hero_btn: "Pruébalo →"
+            hero_btn: "Pruébalo →",
+            res_eval_fin: "Evaluación Finalizada",
+            res_diag: "Tu Diagnóstico Actual:",
+            res_status: "POCA PROPENSIÓN A LESIÓN",
+            res_desc: "De acuerdo con tus resultados en la simetría (Y-Balance), potencia (Hop Test) y patrones de movimiento (FMS), tu cuerpo presenta una excelente adaptación biomecánica. Sin embargo, hay áreas que puedes optimizar. Sigue haciendo scroll.",
+            res_card1_t: "Entrenamiento Correctivo Funcional (FMS)",
+            res_card1_d: "Si tu puntuación en pruebas como el *Deep Squat* o el *Inline Lunge* fue menor a 3, los estudios médicos recientes demuestran que integrar ejercicios correctivos aislados mejora significativamente la estabilidad de tu core (tronco) y reduce los patrones de compensación articular, previniendo lesiones graves a futuro.",
+            res_card2_t: "Simetría Muscular Unilateral",
+            res_card2_d: "El Y-Balance Test suele revelar pequeñas asimetrías entre tus piernas derecha e izquierda. La literatura médica recomienda incorporar ejercicios unilaterales (como sentadillas búlgaras o pesos muertos a una pierna). Una diferencia mayor a 4cm en alcances suele predecir esguinces de tobillo o rodilla.",
+            res_card3_t: "La Paradoja del Entrenamiento",
+            res_card3_d: "¿Sientes molestias luego del Hop Test? Contrario a lo que se piensa, descansar totalmente no siempre previene lesiones. Estudios confirman que el sub-entrenamiento puede ser tan dañino como el sobreentrenamiento. Mantener una carga de trabajo crónica alta pero estable es la mejor armadura contra roturas de tejidos.",
+            res_btn: "VOLVER A MIS TESTS",
         },
         en: {
             nav_home: "Home",
@@ -306,7 +328,18 @@ function logout() {
             nav_info: "Info",
             hero_title: "Preventive screening platform for athletes",
             hero_desc: "Kinedict helps perform injury index prediction exams for different lifestyles.",
-            hero_btn: "Try it out →"
+            hero_btn: "Try it out →",
+            res_eval_fin: "Evaluation Completed",
+            res_diag: "Your Current Diagnosis:",
+            res_status: "LOW INJURY PROPENSITY",
+            res_desc: "Based on your results in symmetry (Y-Balance), power (Hop Test), and movement patterns (FMS), your body shows excellent biomechanical adaptation. However, there are areas you can optimize. Keep scrolling.",
+            res_card1_t: "Functional Corrective Training (FMS)",
+            res_card1_d: "If your score on tests like the *Deep Squat* or *Inline Lunge* was less than 3, recent medical studies show that integrating isolated corrective exercises significantly improves your core stability and reduces joint compensation patterns, preventing future severe injuries.",
+            res_card2_t: "Unilateral Muscular Symmetry",
+            res_card2_d: "The Y-Balance Test often reveals small asymmetries between your right and left legs. Medical literature recommends incorporating unilateral exercises (like Bulgarian split squats or single-leg deadlifts). A difference greater than 4cm in reach often predicts ankle or knee sprains.",
+            res_card3_t: "The Training Paradox",
+            res_card3_d: "Feeling discomfort after the Hop Test? Contrary to popular belief, complete rest doesn't always prevent injuries. Studies confirm that under-training can be as harmful as over-training. Maintaining a high but stable chronic workload is the best armor against tissue tears.",
+            res_btn: "BACK TO MY TESTS"
         }
     };
 
@@ -344,3 +377,24 @@ function logout() {
     }
 
 });
+
+// ==========================================
+    // 3. ANIMACIÓN DE SCROLL (Para resultados.html)
+    // ==========================================
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    if(reveals.length > 0) {
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+            reveals.forEach(reveal => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        revealOnScroll();
+        window.addEventListener('scroll', revealOnScroll);
+    }
+
+    
